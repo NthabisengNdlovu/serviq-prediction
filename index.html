@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SERVIQ Predictive Insights - Week 5</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="logo">S</div>
+        <div>
+          <h1>SERVIQ Executive Reporting</h1>
+          <p>Week 5 - Sprint 3: Predictive Insights Module</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="badge">Trend Prediction Component</span>
+      </div>
+    </header>
+
+    <!-- Department Selector -->
+    <div class="dept-selector">
+      <button class="dept-btn active" data-dept="all">All Departments</button>
+      <button class="dept-btn" data-dept="IT">IT</button>
+      <button class="dept-btn" data-dept="HR">HR</button>
+      <button class="dept-btn" data-dept="Finance">Finance</button>
+      <button class="dept-btn" data-dept="Operations">Operations</button>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Left Column -->
+      <div class="left-col">
+        <div class="card">
+          <div class="card-header">
+            <h2 id="chart-title">Total Ticket Volume - All Departments (Combined)</h2>
+            <button id="generate-btn" class="btn-primary">Generate Forecast</button>
+          </div>
+          <div class="chart-container">
+            <canvas id="ticketChart"></canvas>
+          </div>
+          <div class="logic-box">
+            <h3>Build Simple Predictive Logic</h3>
+            <code id="logic-code">avg(last 4 weeks) = 394 → × 1.15 (month-end) = 453 predicted</code>
+          </div>
+        </div>
+
+        <div class="card" id="breakdown-card">
+          <h3>Department Breakdown</h3>
+          <table class="breakdown-table">
+            <thead>
+              <tr><th>Department</th><th>Last Week</th><th>Predicted</th><th>% of Total</th></tr>
+            </thead>
+            <tbody id="breakdown-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-col">
+        <div class="card stat-card">
+          <label>Predicted Total Tickets</label>
+          <div class="stat-value" id="predicted-value">453</div>
+          <div class="stat-trend" id="trend-value">+15% vs average</div>
+        </div>
+
+        <div class="card stat-card">
+          <label>Projected Workload</label>
+          <div class="workload-badge high" id="workload-badge">HIGH</div>
+          <p class="recommendation" id="recommendation-text">Add 3 agents organization-wide. Expect high volume across all departments due to month-end.</p>
+        </div>
+
+        <div class="card insight-card">
+          <h3>Business Insight</h3>
+          <p id="insight-text">Total volume across all departments shows consistent month-end increase. Average of last 4 weeks is 394, with combined 428 tickets last week. Predicted 453 indicates organization-wide surge requiring coordinated staffing.</p>
+        </div>
+
+        <div class="card toggle-card">
+          <label class="switch">
+            <input type="checkbox" id="summary-toggle" checked>
+            <span>Add Executive Summary</span>
+          </label>
+          <div id="exec-summary" class="exec-summary">
+            Executive summary: Organization is experiencing 15% growth in total ticket volume. All Departments combined forecast indicates need for proactive resource planning.
+          </div>
+        </div>
+
+        <div class="card signoff-card">
+          <h3>Human Review & Sign-Off (Responsible AI)</h3>
+          <div class="form-group">
+            <input type="text" id="firstName" placeholder="Name *" required>
+            <input type="text" id="lastName" placeholder="Surname *" required>
+          </div>
+          <div class="form-group">
+            <input type="date" id="signoff-date">
+          </div>
+          <label class="checkbox-label">
+            <input type="checkbox" id="review-check">
+            <span>I have reviewed and validated this forecast</span>
+          </label>
+          <div class="signoff-error" id="signoff-error">Please enter Name, Surname and check the box to enable download.</div>
+          <button id="download-btn" class="btn-download" disabled>Download Weekly Report (Word)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
