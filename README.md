@@ -1,4 +1,8 @@
+Zenani Masumpa
 
+Product Owner / Sprint Lead	Defined sprint goal: "Introduce forecasting capability". Decided on 3 candidates: Use historical data, Build predictive logic, Display projected workload. Prioritized All Departments Combined view = total of all predictions.	
+
+Used AI to draft user stories and acceptance criteria for each candidate. Prompt: "Generate acceptance criteria for forecast accuracy".
 Mushaisano Setautsi
 
 Business Reporting Developer	Built dashboard UI: Department selector (5 buttons), Chart.js canvas, Predicted Total card, Workload badge HIGH/MEDIUM/LOW, 
